@@ -1,70 +1,112 @@
-# Getting Started with Create React App
+### README File
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# User Management System - Admin UI
 
-## Available Scripts
+## Description
 
-In the project directory, you can run:
+This project implements a User Management System UI that allows users to interact with a list of users (retrieved via an API). The interface provides various features for managing users, such as:
 
-### `npm start`
+1. **Search** - A search bar to filter users based on any property (name, email, or role).
+2. **Pagination** - Display users in pages of 10, with navigation buttons for first page, previous page, next page, and last page.
+3. **Edit/Delete in Place** - Users can edit or delete rows in memory (no persistence), with in-place editing for the fields.
+4. **Selection & Deletion** - Allows selecting one or more rows, which can be deleted using the 'Delete Selected' button.
+5. **Row Selection** - A checkbox on the top left to select or deselect all rows on the current page.
+6. **No external UI libraries** - The UI is built using basic HTML components like buttons, checkboxes, and text boxes.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Features
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Search bar**: Filters the list of users by name, email, or role. The placeholder text for the search bar starts with "Search".
+- **Pagination**: Allows for easy navigation across different pages, with buttons for the first page, previous page, next page, last page, and individual page numbers. Pagination updates dynamically based on search results.
+- **Edit/Delete**: In-place editing of any row, with options to save or delete users.
+- **Delete selected**: A button that allows the deletion of multiple selected rows.
+- **Select/Deselect all**: A checkbox on the top left to select or deselect all rows currently visible on the page.
+- **Responsive**: The UI adjusts to various screen sizes.
 
-### `npm test`
+## API
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The application fetches the list of users from the following API endpoint:
 
-### `npm run build`
+**Endpoint**: `GET https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-problem/members.json`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Sample Response**:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```json
+[
+  {
+    "id": "1",
+    "name": "Aaron Miles",
+    "email": "aaron@mailinator.com",
+    "role": "member"
+  },
+  {
+    "id": "2",
+    "name": "Aishwarya Naik",
+    "email": "aishwarya@mailinator.com",
+    "role": "member"
+  },
+  {
+    "id": "3",
+    "name": "Arvind Kumar",
+    "email": "arvind@mailinator.com",
+    "role": "admin"
+  }
+]
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Instructions to Run
 
-### `npm run eject`
+1. Clone the repository to your local machine.
+2. Install dependencies (if using Node.js):
+   ```bash
+   npm install
+   ```
+3. Start the application:
+   ```bash
+   npm start
+   ```
+4. Access the application on your local server (e.g., http://localhost:3000).
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## Folder Structure
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+/admin-ui
+├── /assets                # Images, icons, fonts, or other static assets
+├── /components            # Reusable UI components like Button, Table, Pagination, etc.
+│   ├── Button.js          # Custom button component
+│   ├── Table.js           # Table component to display users
+│   ├── Pagination.js      # Pagination component
+│   └── SearchBar.js       # Search bar component
+├── /services              # API requests (users API)
+│   └── api.js             # Handles fetching data from the provided API
+├── /styles                # Stylesheets for the app
+│   ├── main.css           # Global styles
+│   └── table.css          # Styles specific to the table component
+├── /utils                 # Helper functions and utilities
+│   ├── pagination.js      # Functions to handle pagination logic
+│   └── search.js          # Functions to handle search/filtering logic
+├── index.html             # Main HTML file
+├── app.js                 # Main application logic
+├── README.md              # Project description and instructions (this file)
+└── package.json           # Project dependencies and script configurations
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Requirements
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- No external UI libraries like Material UI or Bootstrap should be used for basic HTML components.
+- Action buttons (edit, delete, save) must have specific class names (e.g., `edit`, `delete`).
+- Navigation buttons (first page, previous page, next page, last page) must have class names (e.g., `first-page`, `previous-page`, `next-page`, `last-page`).
+- Ensure no hardcoded port numbers or overriding of the `PORT` environment variable.
 
-## Learn More
+## Instructions to Pass Automated Tests
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Search Bar**: The placeholder text for the search bar should begin with "Search".
+- **Search Icon/Button**: The search icon or button should have the class `search-icon` and should trigger a search on pressing the ENTER key.
+- **Action Buttons**: Action elements (like edit, delete, and save) should have specific class names (e.g., `edit`, `delete`, `save`).
+- **Pagination Buttons**: Use `div` or `button` elements with class names like `first-page`, `previous-page`, `next-page`, and `last-page`. The pagination should correctly update when filtering or searching.
+- **Editable Rows**: When the "edit" action is clicked, the row should become editable in place.
+- **Delete Selected Button**: The button to delete selected rows should have the text "Delete Selected".
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Notes
 
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- This project focuses on creating a user interface that meets functional and aesthetic requirements.
+- Be sure to test the application thoroughly to ensure all functionality, such as searching, pagination, row selection, and editing/deleting, is working as expected.

@@ -1,0 +1,11 @@
+button.active {
+    font-weight: bold;
+    background-color: #007bff;
+    color: white;
+  }
+  
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  

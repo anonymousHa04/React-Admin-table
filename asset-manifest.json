@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/react-admin-table/static/css/main.5de1411e.css",
-    "main.js": "/react-admin-table/static/js/main.3b966c31.js",
-    "static/js/453.3d43b322.chunk.js": "/react-admin-table/static/js/453.3d43b322.chunk.js",
-    "index.html": "/react-admin-table/index.html",
-    "main.5de1411e.css.map": "/react-admin-table/static/css/main.5de1411e.css.map",
-    "main.3b966c31.js.map": "/react-admin-table/static/js/main.3b966c31.js.map",
-    "453.3d43b322.chunk.js.map": "/react-admin-table/static/js/453.3d43b322.chunk.js.map"
+    "main.css": "/React-admin-Table/static/css/main.5de1411e.css",
+    "main.js": "/React-admin-Table/static/js/main.6cc63b1f.js",
+    "static/js/453.3d43b322.chunk.js": "/React-admin-Table/static/js/453.3d43b322.chunk.js",
+    "index.html": "/React-admin-Table/index.html",
+    "main.5de1411e.css.map": "/React-admin-Table/static/css/main.5de1411e.css.map",
+    "main.6cc63b1f.js.map": "/React-admin-Table/static/js/main.6cc63b1f.js.map",
+    "453.3d43b322.chunk.js.map": "/React-admin-Table/static/js/453.3d43b322.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.5de1411e.css",
-    "static/js/main.3b966c31.js"
+    "static/js/main.6cc63b1f.js"
   ]
 }
